@@ -1,26 +1,30 @@
 #include<stdio.h>
 
-
-union u1
+struct name1
 {
-	int age[25];
 	char name[100];
-	float salary;	
+	int age;
 };
-
-struct s1
+union name2
 {
-	int age[25];
 	char name[100];
-	float salary;	
+	int age;
+	
 };
 
 
 
-main()
+int main()
 {
-	union u1 check1;
-	struct s1 check2;
-	printf("Size of Union is %d \n",sizeof(check1));
-	printf("Size of Structure is %d ",sizeof(check2));
+	
+	
+	printf("%d \n",sizeof(struct name1));
+	printf("%d \n",sizeof(union name2));
+	
+	struct name1 n;
+	n.age=5;
+//	n.name[100]="bhavesh";
+
+	printf("%d \n",n.age);
+//	printf("%s",n.name);
 }
