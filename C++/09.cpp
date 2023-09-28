@@ -11,7 +11,7 @@ class dada
 		}	
 };
 
-class papa 
+class papa : public dada
 {
 	public :
 	void car()
@@ -25,4 +25,5 @@ main()
 {
 	papa p;
 	p.car();
+	p.zameen();
 }
