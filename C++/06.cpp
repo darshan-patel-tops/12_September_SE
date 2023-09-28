@@ -2,27 +2,48 @@
 using namespace std;
 
 
-class dada
+//Rice
+//Tomato
+//Onion
+//Oil
+//rai
+//jeera
+//taj
+//laving
+//badiya
+//garam masla
+//chutney
+//namak
+//water
+//panner
+//carrot
+//mirchi
+//peas
+//corriander
+
+
+//Encapsulation
+
+class mobile
 {
 	public :
-		void zameen()
+		call()
 		{
-			cout<<"Zameen"<<endl;	
-		}	
+			cout<<"Call"<<endl;
+			}	
+		sms()
+		{
+			cout<<"SMS"<<endl;
+			}	
+		Youtube()
+		{
+			cout<<"Youtube"<<endl;
+			}	
 };
 
-class papa 
-{
-	public :
-	void car()
-	{
-		cout<<"Car"<<endl;	
-	}	
-};
 
-
-main()
+int main()
 {
-	papa p;
-	p.car();
+	mobile m;
+	m.call();
 }
