@@ -12,7 +12,7 @@ class dada
 };
 
 
-class papa : public dada
+class papa : virtual public dada
 {
 	public :
 		void house()
@@ -21,7 +21,7 @@ class papa : public dada
 		}
 };
 
-class kaka : public dada
+class kaka :virtual public dada
 {
 	public :
 		void car()

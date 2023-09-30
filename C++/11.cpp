@@ -49,4 +49,6 @@ main()
 	b.car();
 	b.home();
 	b.zameen();
+					// dada::zameen();
+
 }
