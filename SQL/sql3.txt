@@ -1,0 +1,197 @@
+SQL
+Structured Query Language
+
+NOSQL
+
+sql Aggrigate functions
+1. SUM
+2. MAX
+3. MIN
+4. COUNT
+5. FIRST
+6. LAST
+7. AVG
+
+
+
+1. DDL : data definition language
+-CREATE
+-ALTER
+-TRUNCATE
+-DROP
+2. DML : Data Manipulation Language
+-INSERT
+-UPDATE
+-DELETE
+3. DQL : data query language
+-SELECT
+4. DCL : data transaction control language
+-COMMIT
+-ROLLBACK
+
+
+
+
+primary means unique plus auto increament
+
+CRUD
+Create
+Read 
+Update
+Delete
+
+CREATE DATABASE 07_July_se
+
+
+
+
+CREATE TABLE users
+(
+	user_id int PRIMARY KEY AUTO_INCREMENT,
+ 	name varchar(55),
+    email varchar(255) UNIQUE KEY,
+    password varchar(50)
+)
+
+
+
+INSERT into users VALUES(1,"bhavesh","email@mail.com","123123")
+
+
+INSERT into users(name,email,password) VALUES("dhruv","email1@mail.com","123123")
+
+
+
+SELECT * from users
+SELECT name from users
+SELECT name,email,password from users
+SELECT * from users WHERE user_id = 2
+SELECT * from users WHERE name = "bhavesh"
+SELECT * from users WHERE name = "bhavesh" or name = "dhruv"
+
+
+
+
+ALTER TABLE users
+add COLUMN mobile varchar(50)
+
+ALTER TABLE users
+DROP COLUMN mobile 
+
+
+DELETE FROM users
+DELETE FROM users WHERE user_id = 5
+DELETE FROM users WHERE name = "bhavesh"
+
+
+
+INSERT into users(name,email,password) VALUES("bhavesh","bhavesh@mail.com","123"),("dhruv","dhruv@mail.com","123")
+
+
+TRUNCATE TABLE users
+DROP TABLE users
+
+DROP DATABASE 07_july_se
+
+UPDATE employee SET name="check" //savdhan rahe
+UPDATE employee  SET email="dhruv@mail.com",name="dhruv" WHERE id=2
+
+INSERT into employee(email,name) VALUES ("bhavesh@mail.com","bhavesh"),("admin@mail.com","admin"),("user@mail.com","user")
+
+
+
+SELECT * FROM employee LEFT JOIN users on employee.id = users.user_id
+SELECT * FROM employee RIGHT JOIN users on employee.id = users.user_id
+SELECT * FROM users LEFT JOIN employee on employee.id = users.user_id
+SELECT * FROM users INNER JOIN employee on employee.id = users.user_id
+SELECT * FROM users FULL OUTER JOIN employee on employee.id = users.user_id
+SELECT * FROM users FULL  JOIN employee on employee.id = users.user_id
+
+
+
+
+SELECT SUM(salary) as total_salary FROM employee
+SELECT MIN(salary) as minimum_salary FROM employee
+SELECT max(salary)  FROM employee
+SELECT COUNT(salary)  FROM employee
+SELECT AVG(salary)  FROM employee
+
+
+
+
+CREATE TABLE employee
+(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(50),
+    username varchar(50) UNIQUE KEY,
+    country_id int,
+    FOREIGN key(country_id) REFERENCES country(id)
+
+
+)
+
+
+
+
+
+DELETE FROM country WHERE name = "china";
+COMMIT
+
+DELETE FROM country WHERE name = "pakistan";
+ROLLBACK
+
+
+
+
+  DELIMITER //
+CREATE PROCEDURE my_pro(IN number int(10))
+ BEGIN
+ SELECT * FROM employee WHERE country_id = number;
+ END //
+DELIMITER ;
+
+
+delimiter //
+create procedure tops_cursor()
+begin
+DECLARE whatever BOOLEAN DEFAULT FALSE;   
+declare cs1 cursor for select name from employee;
+end //
+
+
+
+SELECT * FROM employee WHERE username LIKE "%a"
+SELECT * FROM employee WHERE username LIKE "l%"
+SELECT * FROM employee WHERE username LIKE "a%"
+SELECT * FROM employee WHERE username LIKE "%a%"
+SELECT * FROM employee WHERE username LIKE "%a%"
+
+
+
+CREATE INDEX idx_pname
+ON employee (username, name);
+
+
+SELECT * FROM employee  ORDER BY  username
+SELECT * FROM employee  ORDER BY  username DESC
+
+
+
+
+SELECT * FROM employee1 WHERE id in
+(
+SELECT id from customer where salary < 500
+)
+
+
+
+SELECT * FROM country
+WHERE name IN ('Germany', 'France', 'UK');
+
+
+
+SELECT * 
+     FROM customer 
+     WHERE customer_id  IN (SELECT id
+     FROM country 
+     WHERE name = "UK") ;
