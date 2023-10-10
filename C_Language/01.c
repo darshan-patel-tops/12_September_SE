@@ -1,21 +1,11 @@
 #include<stdio.h>
 
-//# is a pre processor
-//stdio standard input output
-//.h header file
-//this whole is a library
-
-//in built and user defined
-
-//main is a user defined function
-main()
+int main()
 {
-
-	/*
-	printf("your statement");
+//	ineteger %d
+// float %f
+// Void
+// char %c
+	printf("Hello this is  pathik and he is 1+1 = %f\n",1+1.);
 	
-	*/
-	printf("hello this is  hamza and he is %d",395+25);
-	
-
 }
