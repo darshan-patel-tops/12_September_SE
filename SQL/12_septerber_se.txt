@@ -1,6 +1,11 @@
 DBMS 
 Database Management System
 
+CRUD
+Create 
+Read 
+Update
+Delete
 
 SQl Commands:
 
@@ -31,14 +36,44 @@ TYPES of database:
 
 
 CREATE DATABASE 12_sept
-CREATE TABLE users(
-    					id int PRIMARY KEY AUTO_INCREMENT,
-    					name varchar(50),
-    					username varchar(50) NOT NULL UNIQUE,
-    					password varchar(50) NOT NULL
-    
-    )
 
-INSERT INTO users(username,password) VALUES ('admin','123')
+CREATE TABLE users
+(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    username varchar(255) UNIQUE KEY,
+    email varchar(255) UNIQUE KEY,
+    mobile varchar(255) UNIQUE KEY,
+    password varchar(255),
+    address varchar(255)
+)
+
+ALTER TABLE users 
+ADD city varchar(255)
+
+ALTER TABLE users 
+DROP address
 
 
+
+SELECT * FROM users
+
+SELECT * FROM users WHERE id =4
+SELECT * FROM users WHERE id = 10
+
+
+INSERT INTO users VALUES (1,'smit','email','8419684','12341564689','ahmedabad')
+
+INSERT INTO users (username,city,password,email,mobile) VALUES ("meetul","ahmedabad","123456897","meetul@mail.com","+9123184685")
+
+INSERT INTO users (username,city,password,email,mobile) VALUES ("meetul","ahmedabad","123456897","meetul@mail.com","+9123184685"),
+("smit","ahmedabad","123456789","smit@mail.com","894694886954")
+
+TRUNCATE TABLE users
+DROP TABLE users
+
+
+DELETE FROM users
+DELETE from users  WHERE id = 5
+
+UPDATE users SET city = "rajkot"
+UPDATE users SET city = "amereli" where id =3
